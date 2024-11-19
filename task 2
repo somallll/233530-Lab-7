@@ -1,0 +1,22 @@
+using System;
+using System.Windows.Forms;
+
+namespace SquareApp
+{
+    public partial class SquareForm : Form
+    {
+        public SquareForm()
+        {
+            InitializeComponent();
+            CalculateSquares();
+        }
+
+        private void CalculateSquares()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                listBoxSquares.Items.Add($"Square of {i} is {i * i}");
+            }
+        }
+    }
+}
