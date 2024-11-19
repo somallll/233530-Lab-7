@@ -1,0 +1,20 @@
+using System;
+using System.Windows.Forms;
+
+namespace TemperatureConverter
+{
+    public partial class ConverterForm : Form
+    {
+        public ConverterForm()
+        {
+            InitializeComponent();
+        }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            double fahrenheit = Convert.ToDouble(txtFahrenheit.Text);
+            double centigrade = (fahrenheit - 32) * 5 / 9;
+            lblResult.Text = $"Centigrade: {centigrade}";
+        }
+    }
+}
