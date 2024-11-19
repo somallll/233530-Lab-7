@@ -1,0 +1,30 @@
+private void ButtonPlaceOrder_Click(object sender, EventArgs e)
+{
+    // Get the selected pizza size
+    string pizzaSize = comboBoxPizzaSize.SelectedItem?.ToString() ?? "No size selected";
+
+    // Gather selected toppings
+    string toppings = "";
+    if (checkBoxCheese.Checked) toppings += "Cheese, ";
+    if (checkBoxPepperoni.Checked) toppings += "Pepperoni, ";
+    if (checkBoxMushrooms.Checked) toppings += "Mushrooms, ";
+
+    // Remove the last comma and space if any toppings were selected
+    if (toppings.Length > 0)
+    {
+        toppings = toppings.Substring(0, toppings.Length - 2);
+    }
+    else
+    {
+        toppings = "No toppings selected";
+    }
+
+    // Get the selected crust type
+    string crustType = "";
+    if (radioButtonThinCrust.Checked) crustType = "Thin Crust";
+    else if (radioButtonThickCrust.Checked) crustType = "Thick Crust";
+    else crustType = "No crust selected";
+
+    // Display the order summary
+    labelOrderSummary.Text = $"Order Summary:\nSize: {pizzaSize}\nToppings: {toppings}\nCrust: {crustType}";
+}
