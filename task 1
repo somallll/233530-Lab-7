@@ -1,0 +1,27 @@
+using System;
+using System.Windows.Forms;
+
+namespace SimpleCalculator
+{
+    public partial class CalculatorForm : Form
+    {
+        public CalculatorForm()
+        {
+            InitializeComponent();
+        }
+
+        private void Add(double a, double b) => MessageBox.Show($"Result: {a + b}");
+        private void Subtract(double a, double b) => MessageBox.Show($"Result: {a - b}");
+        private void Multiply(double a, double b) => MessageBox.Show($"Result: {a * b}");
+        private void Divide(double a, double b) => MessageBox.Show(b != 0 ? $"Result: {a / b}" : "Cannot divide by zero");
+
+        // Button click event handlers for operations
+        // Example for addition
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            double num1 = Convert.ToDouble(txtNum1.Text);
+            double num2 = Convert.ToDouble(txtNum2.Text);
+            Add(num1, num2);
+        }
+    }
+}
