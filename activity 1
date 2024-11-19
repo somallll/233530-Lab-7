@@ -1,0 +1,14 @@
+private void ButtonGreet_Click(object sender, EventArgs e)
+{
+    // Check if the TextBox is not empty
+    if (!string.IsNullOrWhiteSpace(textBoxName.Text))
+    {
+        // Display personalized greeting
+        labelMessage.Text = $"Hello, {textBoxName.Text}! Welcome!";
+    }
+    else
+    {
+        // Prompt the user to enter their name
+        labelMessage.Text = "Please enter your name.";
+    }
+}
