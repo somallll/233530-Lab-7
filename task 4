@@ -1,0 +1,26 @@
+using System;
+using System.Windows.Forms;
+
+namespace FactorialCalculator
+{
+    public partial class FactorialForm : Form
+    {
+        public FactorialForm()
+        {
+            InitializeComponent();
+        }
+
+        private long Factorial(int n)
+        {
+            if (n <= 1) return 1;
+            return n * Factorial(n - 1);
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            int number = Convert.ToInt32(txtNumber.Text);
+            long result = Factorial(number);
+            lblResult.Text = $"Factorial: {result}";
+        }
+    }
+}
