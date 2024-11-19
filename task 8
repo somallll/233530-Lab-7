@@ -1,0 +1,38 @@
+using System;
+using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
+
+namespace PhotoViewer
+{
+    public partial class PhotoViewerForm : Form
+    {
+        public PhotoViewerForm()
+        {
+            InitializeComponent();
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            using (FolderBrowserDialog fbd = new FolderBrowserDialog())
+            {
+                if (fbd.ShowDialog() == DialogResult.OK)
+                {
+                    string[] files = Directory.GetFiles(fbd.SelectedPath, "*.jpg");
+                    foreach (string file in files)
+                    {
+                        listBoxPhotos.Items.Add(file);
+                    }
+                }
+            }
+        }
+
+        private void listBoxPhotos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxPhotos.SelectedItem != null)
+            {
+                pictureBox.Image = Image.FromFile(listBoxPhotos.SelectedItem.ToString());
+            }
+        }
+    }
+}
