@@ -1,0 +1,23 @@
+using System;
+using System.Windows.Forms;
+
+namespace WallClock
+{
+    public partial class ClockForm : Form
+    {
+        public ClockForm()
+        {
+            InitializeComponent();
+            Timer timer = new Timer();
+            timer.Interval = 1000; // 1 second
+            timer.Tick += TimerTick;
+            timer.Start();
+        }
+
+        private void TimerTick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToString("hh:mm:ss tt");
+            lblDate.Text = DateTime.Now.ToString("MMMM dd, yyyy");
+        }
+    }
+}
